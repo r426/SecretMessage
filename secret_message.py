@@ -3,11 +3,6 @@
 import os
 import shutil
 
-# Create a new directory for the deciphered code
-# dir = os.path.join('hack_code_done')
-# if not os.path.exists(dir):
-#     os.mkdir(dir)
-
 # Copy the directory for deciphering the code
 shutil.copytree('hack_code', 'hack_code_done')
 
@@ -16,8 +11,3 @@ basepath = 'hack_code/'
 for fileName in os.listdir(basepath):
     if os.path.isfile(os.path.join(basepath, fileName)):
         print(fileName)
-
-# Create a new directory for the deciphered code
-dir = os.path.join("hack_code_done")
-if not os.path.exists(dir):
-    os.mkdir(dir)
