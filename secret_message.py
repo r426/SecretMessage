@@ -21,7 +21,7 @@ except:
 # Copy the directory for deciphering the secret message
 shutil.copytree(secretMessageDirectory, crackedMessageDirectory)
 
-# Rename files in the crackedMessageDirectory directory
+# Rename files in the crackedMessageDirectory
 basepath = crackedMessageDirectory + '//'
 for fileName in os.listdir(basepath):
     if os.path.isfile(os.path.join(basepath, fileName)):
