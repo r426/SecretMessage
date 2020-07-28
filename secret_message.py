@@ -1,5 +1,6 @@
 # Crack the secret message hiding in hack_code directory
 
+import re
 import os
 import shutil
 
@@ -13,16 +14,16 @@ except AssertionError as object:
     exit()
 
 try:
-    assert not os.path.isdir(crackedMessageDirectory), "Outdated directory deleted."
-except AssertionError as object:
-    print(object)
+    assert not os.path.isdir(crackedMessageDirectory), ""
+except:
     shutil.rmtree(crackedMessageDirectory)
 
-# Copy the directory for deciphering the code
+# Copy the directory for deciphering the secret message
 shutil.copytree(secretMessageDirectory, crackedMessageDirectory)
 
-# List all files in a directory using os.listdir
-basepath = 'hack_code/'
+# Rename files in the crackedMessageDirectory
+basepath = crackedMessageDirectory + '//'
 for fileName in os.listdir(basepath):
     if os.path.isfile(os.path.join(basepath, fileName)):
-        print(fileName)
+        newName = re.sub(r'\d+', '', fileName)
+        os.rename(basepath + fileName, basepath + newName)
